@@ -7,7 +7,23 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>pt-br</language>
         <copyright>Kauã Moreno</copyright>
-        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pt-br/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pt-br/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Artigo</title>
+        <link>http://localhost:1313/pt-br/tags/artigo/</link>
+        <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/pt-br/tags/artigo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>S.I</title>
+        <link>http://localhost:1313/pt-br/tags/s.i/</link>
+        <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/pt-br/tags/s.i/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>CTF</title>
         <link>http://localhost:1313/pt-br/tags/ctf/</link>
         <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>

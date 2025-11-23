@@ -71,7 +71,7 @@ The system returned &lt;code&gt;Incorrect username and/or password&lt;/code&gt;,
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Returning to the login page, I tried the credentials found and clicked login, but again received &lt;code&gt;Incorrect username and/or password&lt;/code&gt;.&lt;br&gt;
-Looking more carefully, it became clear that both the username and password were encoded in &lt;strong&gt;Base64&lt;/strong&gt; — a strong indicator being the trailing &lt;code&gt;=&lt;/code&gt;.&lt;/p&gt;
+Looking more carefully, it became clear that both the username and password were encoded in &lt;strong&gt;Base64&lt;/strong&gt; — a strong indicator being the &lt;code&gt;=&lt;/code&gt; at the end.&lt;/p&gt;
 &lt;p&gt;Decoding both using CyberChef, we get:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Username:&lt;/strong&gt; bislacha&lt;/li&gt;
