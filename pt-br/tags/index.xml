@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tags on Moreno&#39;s Blog</title>
-        <link>http://localhost:1313/pt-br/tags/</link>
+        <link>https://kauamoreno.dev/pt-br/tags/</link>
         <description>Recent content in Tags on Moreno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>pt-br</language>
         <copyright>Kauã Moreno</copyright>
-        <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pt-br/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kauamoreno.dev/pt-br/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Artigo</title>
-        <link>http://localhost:1313/pt-br/tags/artigo/</link>
+        <link>https://kauamoreno.dev/pt-br/tags/artigo/</link>
         <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/tags/artigo/</guid>
+        <guid>https://kauamoreno.dev/pt-br/tags/artigo/</guid>
         <description></description>
         </item>
         <item>
         <title>S.I</title>
-        <link>http://localhost:1313/pt-br/tags/s.i/</link>
+        <link>https://kauamoreno.dev/pt-br/tags/s.i/</link>
         <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/tags/s.i/</guid>
+        <guid>https://kauamoreno.dev/pt-br/tags/s.i/</guid>
         <description></description>
         </item>
         <item>
         <title>CTF</title>
-        <link>http://localhost:1313/pt-br/tags/ctf/</link>
+        <link>https://kauamoreno.dev/pt-br/tags/ctf/</link>
         <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/tags/ctf/</guid>
+        <guid>https://kauamoreno.dev/pt-br/tags/ctf/</guid>
         <description></description>
         </item>
         <item>
         <title>Write-Up</title>
-        <link>http://localhost:1313/pt-br/tags/write-up/</link>
+        <link>https://kauamoreno.dev/pt-br/tags/write-up/</link>
         <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/tags/write-up/</guid>
+        <guid>https://kauamoreno.dev/pt-br/tags/write-up/</guid>
         <description></description>
         </item>
         

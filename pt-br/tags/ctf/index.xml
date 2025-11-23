@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>CTF on Moreno&#39;s Blog</title>
-        <link>http://localhost:1313/pt-br/tags/ctf/</link>
+        <link>https://kauamoreno.dev/pt-br/tags/ctf/</link>
         <description>Recent content in CTF on Moreno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>pt-br</language>
         <copyright>Kauã Moreno</copyright>
-        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pt-br/tags/ctf/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kauamoreno.dev/pt-br/tags/ctf/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>O retorno do Bislacha</title>
-        <link>http://localhost:1313/pt-br/p/o-retorno-do-bislacha/</link>
+        <link>https://kauamoreno.dev/pt-br/p/o-retorno-do-bislacha/</link>
         <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/p/o-retorno-do-bislacha/</guid>
-        <description>&lt;img src="http://localhost:1313/p/the-return-of-bislacha/cover.jpg" alt="Featured image of post O retorno do Bislacha" /&gt;&lt;h2 id=&#34;objetivo&#34;&gt;Objetivo
+        <guid>https://kauamoreno.dev/pt-br/p/o-retorno-do-bislacha/</guid>
+        <description>&lt;img src="https://kauamoreno.dev/p/the-return-of-bislacha/cover.jpg" alt="Featured image of post O retorno do Bislacha" /&gt;&lt;h2 id=&#34;objetivo&#34;&gt;Objetivo
 &lt;/h2&gt;&lt;p&gt;O objetivo do desafio foi realizar reconhecimento, analisar arquivos (esteganografia/strings), decodificar credenciais e explorar um controle de acesso fraco para escalonamento de privilégios.&lt;/p&gt;
 &lt;h2 id=&#34;solução&#34;&gt;Solução
 &lt;/h2&gt;&lt;h3 id=&#34;fazendo-o-reconhecimento&#34;&gt;Fazendo o reconhecimento
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/reconhecimento.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/reconhecimento.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;446&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/reconhecimento_hu_3bd5939bc644c5aa.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/reconhecimento_hu_b874b8c3ca9067cd.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/reconhecimento_hu_3bd5939bc644c5aa.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/reconhecimento_hu_b874b8c3ca9067cd.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Reconhecimento&#34;
@@ -33,10 +33,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;O site, à primeira vista, contém apenas duas abas: &lt;strong&gt;Home&lt;/strong&gt; e &lt;strong&gt;Login&lt;/strong&gt;. A aba Home redireciona para a aba Login. Inspecionei o HTML e o console do navegador e nada de anormal apareceu.
 Para testar o funcionamento do sistema de login, iniciei com um teste de SQL Injection simples: &lt;code&gt;&#39; OR 1=1 --&lt;/code&gt;. O sistema retornou &lt;code&gt;Login e/ou senha incorretos&lt;/code&gt;, sugerindo que não havia uma vulnerabilidade SQL trivial na rota de login.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/request.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/request.png&#34;
 	width=&#34;277&#34;
 	height=&#34;169&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/request_hu_86599f2bc399c1d5.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/request_hu_3d274f13e6757a38.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/request_hu_86599f2bc399c1d5.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/request_hu_3d274f13e6757a38.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Request&#34;
@@ -49,16 +49,16 @@ Para testar o funcionamento do sistema de login, iniciei com um teste de SQL Inj
 &gt;&lt;/p&gt;
 &lt;p&gt;Ao examinar melhor a página, reparei em um pequeno texto no logo:&lt;/p&gt;
 &lt;center&gt;
-    &lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/logo.png&#34; width=&#34;300&#34;&gt;
-    &lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/texto-logo.png&#34; width=&#34;150&#34;&gt;
+    &lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/logo.png&#34; width=&#34;300&#34;&gt;
+    &lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/texto-logo.png&#34; width=&#34;150&#34;&gt;
 &lt;/center&gt;
 &lt;p&gt;Esse texto apontava para um diretório/arquivo do site que carregava uma imagem.&lt;/p&gt;
 &lt;h3 id=&#34;analisando-a-imagem&#34;&gt;Analisando a imagem
 &lt;/h3&gt;&lt;p&gt;Baixei a imagem e procurei por strings legíveis (com &lt;code&gt;strings&lt;/code&gt;). A imagem aparentava ser um fundo preto, mas nas strings encontrei dados que lembravam credenciais codificadas.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/hexedit-login.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/hexedit-login.png&#34;
 	width=&#34;699&#34;
 	height=&#34;227&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/hexedit-login_hu_b36397e608a9c685.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/hexedit-login_hu_92eb3e2f9187647a.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/hexedit-login_hu_b36397e608a9c685.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/hexedit-login_hu_92eb3e2f9187647a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Hexedit Login&#34;
@@ -78,10 +78,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;Com as credenciais corretas, agora o login foi um sucesso.&lt;/p&gt;
 &lt;h3 id=&#34;acesso&#34;&gt;Acesso
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/logado.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/logado.png&#34;
 	width=&#34;872&#34;
 	height=&#34;389&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/logado_hu_1e2a8f11e2e22e46.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/logado_hu_55277c56285b6463.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/logado_hu_1e2a8f11e2e22e46.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/logado_hu_55277c56285b6463.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Logado&#34;
@@ -93,10 +93,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;Após entrar, uma nova aba chamada &lt;strong&gt;Membros&lt;/strong&gt; foi disponibilizada. Nela vi uma listagem de membros atuais e ex-membros; foquei no usuário autenticado (Bislacha).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/bislacha.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/bislacha.png&#34;
 	width=&#34;424&#34;
 	height=&#34;103&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/bislacha_hu_c009bb17cd1c590f.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/bislacha_hu_56f88a00df454c3e.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/bislacha_hu_c009bb17cd1c590f.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/bislacha_hu_56f88a00df454c3e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Bislacha&#34;
@@ -109,10 +109,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;No lugar de seu apelido podemos ver que se trata de uma base64 novamente, e decodificando temos: &lt;code&gt;panel.php&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;panelphp&#34;&gt;Panel.php
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/panel.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/panel.png&#34;
 	width=&#34;890&#34;
 	height=&#34;399&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/panel_hu_eb4ea0aefe992d0e.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/panel_hu_d0c10f4be7272ac1.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/panel_hu_eb4ea0aefe992d0e.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/panel_hu_d0c10f4be7272ac1.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Panel&#34;
@@ -125,10 +125,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;p&gt;Ao acessar &lt;code&gt;/panel.php&lt;/code&gt; fui informado de que a conta estava logada, mas não era admin. Isso indica que existe um painel administrativo protegido por controle de acesso, ou seja, havia potencial para escalonamento de privilégio.&lt;/p&gt;
 &lt;h3 id=&#34;escalonamento-de-privilégio&#34;&gt;Escalonamento de privilégio
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/cookies.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/cookies.png&#34;
 	width=&#34;517&#34;
 	height=&#34;173&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/cookies_hu_4265a50050d32d3f.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/cookies_hu_de9b4752a804db96.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/cookies_hu_4265a50050d32d3f.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/cookies_hu_de9b4752a804db96.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Cookies&#34;
@@ -145,10 +145,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;user:&lt;/strong&gt; member&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Ou seja, o sistema armazena os tipos de usuario em base64, como  precisamos escalar para &lt;code&gt;admin&lt;/code&gt;, eu troco o atual user por &lt;code&gt;YWRtaW4=&lt;/code&gt;, sua versão codificada e recarrego a pagina.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/resolucao.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/resolucao.png&#34;
 	width=&#34;940&#34;
 	height=&#34;386&#34;
-	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/resolucao_hu_ee17fee683cb0fdb.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/resolucao_hu_9ee23f3ff26343ec.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/the-return-of-bislacha/img/resolucao_hu_ee17fee683cb0fdb.png 480w, https://kauamoreno.dev/p/the-return-of-bislacha/img/resolucao_hu_9ee23f3ff26343ec.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Resolução&#34;
@@ -164,22 +164,22 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
         </item>
         <item>
         <title>Patch</title>
-        <link>http://localhost:1313/pt-br/p/patch/</link>
+        <link>https://kauamoreno.dev/pt-br/p/patch/</link>
         <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/p/patch/</guid>
-        <description>&lt;img src="http://localhost:1313/p/patch/banner.jpeg" alt="Featured image of post Patch" /&gt;&lt;h2 id=&#34;enunciado&#34;&gt;Enunciado
+        <guid>https://kauamoreno.dev/pt-br/p/patch/</guid>
+        <description>&lt;img src="https://kauamoreno.dev/p/patch/banner.jpeg" alt="Featured image of post Patch" /&gt;&lt;h2 id=&#34;enunciado&#34;&gt;Enunciado
 &lt;/h2&gt;&lt;p&gt;Você sabe como faz um patch?&lt;/p&gt;
-&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/p/patch/files/patch&#34; &gt;Clique para baixar o arquivo patch&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;https://kauamoreno.dev/p/patch/files/patch&#34; &gt;Clique para baixar o arquivo patch&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;objetivo&#34;&gt;Objetivo
 &lt;/h2&gt;&lt;p&gt;O objetivo deste desafio era localizar e analisar as funções do arquivo &lt;code&gt;patch&lt;/code&gt; para identificar a rotina responsável pela geração da flag.&lt;/p&gt;
 &lt;h2 id=&#34;solução&#34;&gt;Solução
 &lt;/h2&gt;&lt;h3 id=&#34;metadados&#34;&gt;Metadados
 &lt;/h3&gt;&lt;p&gt;Verifiquei os metadados do binário em busca de dicas ou incongruências; não encontrei nada relevante.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/metadados.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/metadados.png&#34;
 	width=&#34;822&#34;
 	height=&#34;434&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/metadados_hu_484e9cf321de87ee.png 480w, http://localhost:1313/p/patch/img/metadados_hu_261d30b63137a2e7.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/metadados_hu_484e9cf321de87ee.png 480w, https://kauamoreno.dev/p/patch/img/metadados_hu_261d30b63137a2e7.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Metadados&#34;
@@ -192,10 +192,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;strings-legíveis&#34;&gt;Strings legíveis
 &lt;/h3&gt;&lt;p&gt;Listei as strings legíveis do arquivo para procurar pistas. Encontrei uma frase e duas palavras que não apontavam diretamente para a flag. A única associação óbvia foi entre “derrota” e a string “Boa sorte da próxima”.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/string-input.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/string-input.png&#34;
 	width=&#34;192&#34;
 	height=&#34;31&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/string-input_hu_a79e4d57d5903966.png 480w, http://localhost:1313/p/patch/img/string-input_hu_b212e5d4138dae6d.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/string-input_hu_a79e4d57d5903966.png 480w, https://kauamoreno.dev/p/patch/img/string-input_hu_b212e5d4138dae6d.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Strings Input&#34;
@@ -206,10 +206,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 		data-flex-basis=&#34;1486px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/string-output.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/string-output.png&#34;
 	width=&#34;368&#34;
 	height=&#34;436&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/string-output_hu_72f3d2a224b36921.png 480w, http://localhost:1313/p/patch/img/string-output_hu_8f64b3b2bf2e03cb.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/string-output_hu_72f3d2a224b36921.png 480w, https://kauamoreno.dev/p/patch/img/string-output_hu_8f64b3b2bf2e03cb.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Strings Output&#34;
@@ -222,10 +222,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;verificando-as-funções-do-programa&#34;&gt;Verificando as funções do programa
 &lt;/h3&gt;&lt;p&gt;Ao revisar as funções do programa, ficou claro que as palavras encontradas nas strings faziam parte do fluxo do código. Isso sugeriu que as funções &lt;code&gt;derrota()&lt;/code&gt; e &lt;code&gt;vitoria()&lt;/code&gt; seriam relevantes, provavelmente &lt;code&gt;vitoria()&lt;/code&gt; retornaria a flag.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/funcoes-input.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/funcoes-input.png&#34;
 	width=&#34;218&#34;
 	height=&#34;32&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/funcoes-input_hu_a1fd65fafa0e2d9.png 480w, http://localhost:1313/p/patch/img/funcoes-input_hu_4190cd3ffd2ea512.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/funcoes-input_hu_a1fd65fafa0e2d9.png 480w, https://kauamoreno.dev/p/patch/img/funcoes-input_hu_4190cd3ffd2ea512.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Funções Input&#34;
@@ -236,10 +236,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 		data-flex-basis=&#34;1635px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/funcoes-output.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/funcoes-output.png&#34;
 	width=&#34;396&#34;
 	height=&#34;327&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/funcoes-output_hu_c7c54071bc0cafcd.png 480w, http://localhost:1313/p/patch/img/funcoes-output_hu_f5c077c17782b788.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/funcoes-output_hu_c7c54071bc0cafcd.png 480w, https://kauamoreno.dev/p/patch/img/funcoes-output_hu_f5c077c17782b788.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Funções Output&#34;
@@ -252,10 +252,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;executando-as-funções&#34;&gt;Executando as funções
 &lt;/h3&gt;&lt;p&gt;Inicialmente tentei executar as funções em modo de debug, mas recebi um erro por falta de permissão. Após ajustar as permissões/ambiente (permitindo o debug/execução), consegui chamar as funções.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/executa-erro.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/executa-erro.png&#34;
 	width=&#34;913&#34;
 	height=&#34;379&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/executa-erro_hu_f3aa8ba1eef71d8f.png 480w, http://localhost:1313/p/patch/img/executa-erro_hu_8833db9c69b9b56c.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/executa-erro_hu_f3aa8ba1eef71d8f.png 480w, https://kauamoreno.dev/p/patch/img/executa-erro_hu_8833db9c69b9b56c.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Erro Execução&#34;
@@ -266,10 +266,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 		data-flex-basis=&#34;578px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/ativa-permissao.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/ativa-permissao.png&#34;
 	width=&#34;217&#34;
 	height=&#34;32&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/ativa-permissao_hu_d37033ce426856ce.png 480w, http://localhost:1313/p/patch/img/ativa-permissao_hu_923d67408fdbca08.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/ativa-permissao_hu_d37033ce426856ce.png 480w, https://kauamoreno.dev/p/patch/img/ativa-permissao_hu_923d67408fdbca08.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Ativa Permissão&#34;
@@ -285,10 +285,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;derrota()&lt;/code&gt; imprimiu a mesma frase encontrada nas strings legíveis;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;vitoria()&lt;/code&gt; retornou a flag buscada.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/executa-sucesso.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/executa-sucesso.png&#34;
 	width=&#34;924&#34;
 	height=&#34;215&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/executa-sucesso_hu_66d199d085cd1945.png 480w, http://localhost:1313/p/patch/img/executa-sucesso_hu_38a57a4893eded94.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/executa-sucesso_hu_66d199d085cd1945.png 480w, https://kauamoreno.dev/p/patch/img/executa-sucesso_hu_38a57a4893eded94.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Execução Sucesso&#34;
@@ -301,10 +301,10 @@ Decodificando ambos com uso do CyberChef chegamos em:&lt;/p&gt;
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;interpretação--explicação&#34;&gt;Interpretação / explicação
 &lt;/h3&gt;&lt;p&gt;A função &lt;code&gt;derrota()&lt;/code&gt; apenas devolve a string armazenada &amp;ldquo;crua&amp;rdquo; no binário, por isso já aparecia listada nas strings legíveis. Já a função &lt;code&gt;vitoria()&lt;/code&gt; aparentemente realiza um processo de decodificação sobre um dado previamente armazenado; ao executar essa rotina, a flag é revelada.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/analise-funcao.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/analise-funcao.png&#34;
 	width=&#34;1086&#34;
 	height=&#34;813&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/analise-funcao_hu_9fcee4aa33a83cc2.png 480w, http://localhost:1313/p/patch/img/analise-funcao_hu_546f88636662913d.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/analise-funcao_hu_9fcee4aa33a83cc2.png 480w, https://kauamoreno.dev/p/patch/img/analise-funcao_hu_546f88636662913d.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Análise da Função&#34;

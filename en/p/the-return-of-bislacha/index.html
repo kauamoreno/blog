@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="A write-up covering image analysis, Base64 decoding, weak access control exploitation, and privilege escalation to reach the admin panel.">
+<title>The Return of Bislacha</title>
+
+<link rel='canonical' href='http://localhost:1313/p/the-return-of-bislacha/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="The Return of Bislacha">
+<meta property='og:description' content="A write-up covering image analysis, Base64 decoding, weak access control exploitation, and privilege escalation to reach the admin panel.">
+<meta property='og:url' content='http://localhost:1313/p/the-return-of-bislacha/'>
+<meta property='og:site_name' content='Moreno&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Write-Up' /><meta property='article:published_time' content='2025-11-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-21T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/the-return-of-bislacha/cover.jpg' />
+<meta name="twitter:title" content="The Return of Bislacha">
+<meta name="twitter:description" content="A write-up covering image analysis, Base64 decoding, weak access control exploitation, and privilege escalation to reach the admin panel."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/the-return-of-bislacha/cover.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar1_hu_5bc485d3fd6bac12.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">☕</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Moreno&#39;s Blog</a></h1>
+            <h2 class="site-description">A place where I post what I&#39;m studying or doing.</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/kauamoreno'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/kauamoreno/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="24" r="20" fill="#0077B5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.7747 14.2839C18.7747 15.529 17.8267 16.5366 16.3442 16.5366C14.9194 16.5366 13.9713 15.529 14.0007 14.2839C13.9713 12.9783 14.9193 12 16.3726 12C17.8267 12 18.7463 12.9783 18.7747 14.2839ZM14.1199 32.8191V18.3162H18.6271V32.8181H14.1199V32.8191Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.2393 22.9446C22.2393 21.1357 22.1797 19.5935 22.1201 18.3182H26.0351L26.2432 20.305H26.3322C26.9254 19.3854 28.4079 17.9927 30.8101 17.9927C33.7752 17.9927 35.9995 19.9502 35.9995 24.219V32.821H31.4922V24.7838C31.4922 22.9144 30.8404 21.6399 29.2093 21.6399C27.9633 21.6399 27.2224 22.4999 26.9263 23.3297C26.8071 23.6268 26.7484 24.0412 26.7484 24.4574V32.821H22.2411V22.9446H22.2393Z" fill="white"/>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1314/" >Português (Brasil)</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#solution">Solution</a>
+      <ol>
+        <li><a href="#performing-reconnaissance">Performing reconnaissance</a></li>
+        <li><a href="#analyzing-the-image">Analyzing the image</a></li>
+        <li><a href="#access">Access</a></li>
+        <li><a href="#panelphp">Panel.php</a></li>
+        <li><a href="#privilege-escalation">Privilege escalation</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/the-return-of-bislacha/">
+                <img src="/p/the-return-of-bislacha/cover_hu_5c85e2b95c1f7303.jpg"
+                        srcset="/p/the-return-of-bislacha/cover_hu_5c85e2b95c1f7303.jpg 800w, /p/the-return-of-bislacha/cover_hu_6a376049fee581f1.jpg 1600w"
+                        width="800" 
+                        height="371" 
+                        loading="lazy"
+                        alt="Featured image of post The Return of Bislacha" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ctf/" style="background-color: #2a9d8f; color: #fff;">
+                CTF
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/the-return-of-bislacha/">The Return of Bislacha</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            A write-up covering image analysis, Base64 decoding, weak access control exploitation, and privilege escalation to reach the admin panel.
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 21, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+        <footer class="article-translations">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+            <div>
+                
+                    <a href="http://localhost:1314/p/o-retorno-do-bislacha/" class="link">Português (Brasil)</a>
+                
+            </div>
+        </footer>
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="objective">Objective
+</h2><p>The goal of this challenge was to perform reconnaissance, analyze files (steganography/strings), decode credentials, and exploit a weak access control to achieve privilege escalation.</p>
+<h2 id="solution">Solution
+</h2><h3 id="performing-reconnaissance">Performing reconnaissance
+</h3><p><img src="/p/the-return-of-bislacha/img/reconhecimento.png"
+	width="1920"
+	height="446"
+	srcset="/p/the-return-of-bislacha/img/reconhecimento_hu_3bd5939bc644c5aa.png 480w, /p/the-return-of-bislacha/img/reconhecimento_hu_b874b8c3ca9067cd.png 1024w"
+	loading="lazy"
+	
+		alt="Reconnaissance"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="430"
+		data-flex-basis="1033px"
+	
+></p>
+<p>At first glance, the site contains only two tabs: <strong>Home</strong> and <strong>Login</strong>. The Home tab redirects to the Login tab. I inspected the HTML and the browser console, and nothing unusual appeared.</p>
+<p>To test the login system, I started with a simple SQL Injection test: <code>' OR 1=1 --</code>.<br>
+The system returned <code>Incorrect username and/or password</code>, suggesting there was no trivial SQL vulnerability in the login route.</p>
+<p><img src="/p/the-return-of-bislacha/img/request.png"
+	width="277"
+	height="169"
+	srcset="/p/the-return-of-bislacha/img/request_hu_86599f2bc399c1d5.png 480w, /p/the-return-of-bislacha/img/request_hu_3d274f13e6757a38.png 1024w"
+	loading="lazy"
+	
+		alt="Request"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="163"
+		data-flex-basis="393px"
+	
+></p>
+<p>Looking more closely at the page, I noticed a small text on the logo:</p>
+<center>
+    <img src="img/logo.png" width="300">
+    <img src="img/texto-logo.png" width="150">
+</center>
+<p>This text pointed to a directory/file on the site that served an image.</p>
+<h3 id="analyzing-the-image">Analyzing the image
+</h3><p>I downloaded the image and searched for readable strings (using <code>strings</code>). The image appeared to be a black background, but inside the strings I found data resembling encoded credentials.</p>
+<p><img src="/p/the-return-of-bislacha/img/hexedit-login.png"
+	width="699"
+	height="227"
+	srcset="/p/the-return-of-bislacha/img/hexedit-login_hu_b36397e608a9c685.png 480w, /p/the-return-of-bislacha/img/hexedit-login_hu_92eb3e2f9187647a.png 1024w"
+	loading="lazy"
+	
+		alt="Hexedit Login"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="307"
+		data-flex-basis="739px"
+	
+></p>
+<p>Returning to the login page, I tried the credentials found and clicked login, but again received <code>Incorrect username and/or password</code>.<br>
+Looking more carefully, it became clear that both the username and password were encoded in <strong>Base64</strong> — a strong indicator being the <code>=</code> at the end.</p>
+<p>Decoding both using CyberChef, we get:</p>
+<ul>
+<li><strong>Username:</strong> bislacha</li>
+<li><strong>Password:</strong> bislachamuitofoda12345</li>
+</ul>
+<p>With the correct credentials, the login was now successful.</p>
+<h3 id="access">Access
+</h3><p><img src="/p/the-return-of-bislacha/img/logado.png"
+	width="872"
+	height="389"
+	srcset="/p/the-return-of-bislacha/img/logado_hu_1e2a8f11e2e22e46.png 480w, /p/the-return-of-bislacha/img/logado_hu_55277c56285b6463.png 1024w"
+	loading="lazy"
+	
+		alt="Logged In"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="224"
+		data-flex-basis="537px"
+	
+></p>
+<p>After logging in, a new tab called <strong>Members</strong> became available. There, I saw a list of current and former members; I focused on the authenticated user (Bislacha).</p>
+<p><img src="/p/the-return-of-bislacha/img/bislacha.png"
+	width="424"
+	height="103"
+	srcset="/p/the-return-of-bislacha/img/bislacha_hu_c009bb17cd1c590f.png 480w, /p/the-return-of-bislacha/img/bislacha_hu_56f88a00df454c3e.png 1024w"
+	loading="lazy"
+	
+		alt="Bislacha"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="411"
+		data-flex-basis="987px"
+	
+></p>
+<p>Instead of the nickname, we can see another Base64 string; decoding it yields: <code>panel.php</code>.</p>
+<h3 id="panelphp">Panel.php
+</h3><p><img src="/p/the-return-of-bislacha/img/panel.png"
+	width="890"
+	height="399"
+	srcset="/p/the-return-of-bislacha/img/panel_hu_eb4ea0aefe992d0e.png 480w, /p/the-return-of-bislacha/img/panel_hu_d0c10f4be7272ac1.png 1024w"
+	loading="lazy"
+	
+		alt="Panel"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="223"
+		data-flex-basis="535px"
+	
+></p>
+<p>Accessing <code>/panel.php</code>, I was informed that the account was logged in but not an admin. This indicates that an administrative panel exists and is protected by access control — meaning privilege escalation was likely possible.</p>
+<h3 id="privilege-escalation">Privilege escalation
+</h3><p><img src="/p/the-return-of-bislacha/img/cookies.png"
+	width="517"
+	height="173"
+	srcset="/p/the-return-of-bislacha/img/cookies_hu_4265a50050d32d3f.png 480w, /p/the-return-of-bislacha/img/cookies_hu_de9b4752a804db96.png 1024w"
+	loading="lazy"
+	
+		alt="Cookies"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="298"
+		data-flex-basis="717px"
+	
+></p>
+<p>Inspecting the stored cookies, I found the fields <code>login</code> and <code>user</code> with their corresponding values. They were again Base64-encoded. Decoding them, we have:</p>
+<ul>
+<li><strong>login:</strong> bislacha</li>
+<li><strong>user:</strong> member</li>
+</ul>
+<p>Since the system stores user roles in Base64 and we need to escalate to <code>admin</code>, I replaced the current user value with <code>YWRtaW4=</code> (the Base64 for <code>admin</code>) and refreshed the page.</p>
+<p><img src="/p/the-return-of-bislacha/img/resolucao.png"
+	width="940"
+	height="386"
+	srcset="/p/the-return-of-bislacha/img/resolucao_hu_ee17fee683cb0fdb.png 480w, /p/the-return-of-bislacha/img/resolucao_hu_9ee23f3ff26343ec.png 1024w"
+	loading="lazy"
+	
+		alt="Resolution"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="243"
+		data-flex-basis="584px"
+	
+></p>
+<p>After refreshing the page, the interface switched to the administrator version, and the challenge flag was displayed.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ctf/">CTF</a>
+        
+            <a href="/tags/write-up/">Write-Up</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/patch/">
+        
+        
+            <div class="article-image">
+                <img src="/p/patch/banner.99462ce6434ec0662dde28ccbc0cf3b3_hu_26d4884b5fb56ccd.jpeg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Patch"
+                        
+                        data-hash="md5-mUYs5kNOwGYt3ijMvAzzsw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Patch</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Kauã Moreno
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a02c933ad9b14187a1ea5d0ed52828310c07adb8b29cea437158f0b49213e852.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

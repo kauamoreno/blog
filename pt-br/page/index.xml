@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on Moreno&#39;s Blog</title>
-        <link>http://localhost:1313/pt-br/page/</link>
+        <link>https://kauamoreno.dev/pt-br/page/</link>
         <description>Recent content in Pages on Moreno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>pt-br</language>
         <copyright>Kauã Moreno</copyright>
-        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/pt-br/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kauamoreno.dev/pt-br/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Sobre</title>
-        <link>http://localhost:1313/pt-br/sobre/</link>
+        <link>https://kauamoreno.dev/pt-br/sobre/</link>
         <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/sobre/</guid>
+        <guid>https://kauamoreno.dev/pt-br/sobre/</guid>
         <description>&lt;p&gt;🚧 Em construção&amp;hellip;.&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>Arquivos</title>
-        <link>http://localhost:1313/pt-br/archives/</link>
+        <link>https://kauamoreno.dev/pt-br/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/archives/</guid>
+        <guid>https://kauamoreno.dev/pt-br/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Pesquisa</title>
-        <link>http://localhost:1313/pt-br/search/</link>
+        <link>https://kauamoreno.dev/pt-br/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/pt-br/search/</guid>
+        <guid>https://kauamoreno.dev/pt-br/search/</guid>
         <description></description>
         </item>
         

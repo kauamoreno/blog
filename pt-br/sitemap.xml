@@ -2,181 +2,181 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/pt-br/</loc>
+    <loc>https://kauamoreno.dev/pt-br/</loc>
     <lastmod>2025-11-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/"
+                href="https://kauamoreno.dev/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/"
+                href="https://kauamoreno.dev/pt-br/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/p/an%C3%A1lise-do-sistema-oracle-hcm-sob-a-perspectiva-de-s.i/</loc>
+    <loc>https://kauamoreno.dev/pt-br/p/an%C3%A1lise-do-sistema-oracle-hcm-sob-a-perspectiva-de-s.i/</loc>
     <lastmod>2025-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pt-br/tags/artigo/</loc>
+    <loc>https://kauamoreno.dev/pt-br/tags/artigo/</loc>
     <lastmod>2025-11-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/pt-br/post/</loc>
-    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt-br"
-                href="http://localhost:1313/pt-br/post/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/pt-br/tags/s.i/</loc>
-    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/pt-br/tags/</loc>
+    <loc>https://kauamoreno.dev/pt-br/post/</loc>
     <lastmod>2025-11-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/"
+                href="https://kauamoreno.dev/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/tags/"
+                href="https://kauamoreno.dev/pt-br/post/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/categories/</loc>
+    <loc>https://kauamoreno.dev/pt-br/tags/s.i/</loc>
+    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://kauamoreno.dev/pt-br/tags/</loc>
+    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kauamoreno.dev/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt-br"
+                href="https://kauamoreno.dev/pt-br/tags/"
+                />
+  </url><url>
+    <loc>https://kauamoreno.dev/pt-br/categories/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/categories/"
+                href="https://kauamoreno.dev/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/categories/"
+                href="https://kauamoreno.dev/pt-br/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/categories/ctf/</loc>
+    <loc>https://kauamoreno.dev/pt-br/categories/ctf/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/categories/ctf/"
+                href="https://kauamoreno.dev/categories/ctf/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/categories/ctf/"
+                href="https://kauamoreno.dev/pt-br/categories/ctf/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/tags/ctf/</loc>
+    <loc>https://kauamoreno.dev/pt-br/tags/ctf/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/ctf/"
+                href="https://kauamoreno.dev/tags/ctf/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/tags/ctf/"
+                href="https://kauamoreno.dev/pt-br/tags/ctf/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/p/o-retorno-do-bislacha/</loc>
+    <loc>https://kauamoreno.dev/pt-br/p/o-retorno-do-bislacha/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/p/the-return-of-bislacha/"
+                href="https://kauamoreno.dev/p/the-return-of-bislacha/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/p/o-retorno-do-bislacha/"
+                href="https://kauamoreno.dev/pt-br/p/o-retorno-do-bislacha/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/page/</loc>
+    <loc>https://kauamoreno.dev/pt-br/page/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/page/"
+                href="https://kauamoreno.dev/page/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/page/"
+                href="https://kauamoreno.dev/pt-br/page/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/sobre/</loc>
+    <loc>https://kauamoreno.dev/pt-br/sobre/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/about/"
+                href="https://kauamoreno.dev/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/sobre/"
+                href="https://kauamoreno.dev/pt-br/sobre/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/tags/write-up/</loc>
+    <loc>https://kauamoreno.dev/pt-br/tags/write-up/</loc>
     <lastmod>2025-11-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/write-up/"
+                href="https://kauamoreno.dev/tags/write-up/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/tags/write-up/"
+                href="https://kauamoreno.dev/pt-br/tags/write-up/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/p/patch/</loc>
+    <loc>https://kauamoreno.dev/pt-br/p/patch/</loc>
     <lastmod>2025-11-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/p/patch/"
+                href="https://kauamoreno.dev/p/patch/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/p/patch/"
+                href="https://kauamoreno.dev/pt-br/p/patch/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/archives/</loc>
+    <loc>https://kauamoreno.dev/pt-br/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/archives/"
+                href="https://kauamoreno.dev/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/archives/"
+                href="https://kauamoreno.dev/pt-br/archives/"
                 />
   </url><url>
-    <loc>http://localhost:1313/pt-br/search/</loc>
+    <loc>https://kauamoreno.dev/pt-br/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/search/"
+                href="https://kauamoreno.dev/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt-br"
-                href="http://localhost:1313/pt-br/search/"
+                href="https://kauamoreno.dev/pt-br/search/"
                 />
   </url>
 </urlset>
