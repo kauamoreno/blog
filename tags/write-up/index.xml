@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Write-Up on Moreno&#39;s Blog</title>
+        <link>http://localhost:1313/tags/write-up/</link>
+        <description>Recent content in Write-Up on Moreno&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <copyright>Kauã Moreno</copyright>
+        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/write-up/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>The Return of Bislacha</title>
+        <link>http://localhost:1313/p/the-return-of-bislacha/</link>
+        <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/the-return-of-bislacha/</guid>
+        <description>&lt;img src="http://localhost:1313/p/the-return-of-bislacha/cover.jpg" alt="Featured image of post The Return of Bislacha" /&gt;&lt;h2 id=&#34;objective&#34;&gt;Objective
+&lt;/h2&gt;&lt;p&gt;The goal of this challenge was to perform reconnaissance, analyze files (steganography/strings), decode credentials, and exploit a weak access control to achieve privilege escalation.&lt;/p&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution
+&lt;/h2&gt;&lt;h3 id=&#34;performing-reconnaissance&#34;&gt;Performing reconnaissance
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/reconhecimento.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;446&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/reconhecimento_hu_3bd5939bc644c5aa.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/reconhecimento_hu_b874b8c3ca9067cd.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Reconnaissance&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;430&#34;
+		data-flex-basis=&#34;1033px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;At first glance, the site contains only two tabs: &lt;strong&gt;Home&lt;/strong&gt; and &lt;strong&gt;Login&lt;/strong&gt;. The Home tab redirects to the Login tab. I inspected the HTML and the browser console, and nothing unusual appeared.&lt;/p&gt;
+&lt;p&gt;To test the login system, I started with a simple SQL Injection test: &lt;code&gt;&#39; OR 1=1 --&lt;/code&gt;.&lt;br&gt;
+The system returned &lt;code&gt;Incorrect username and/or password&lt;/code&gt;, suggesting there was no trivial SQL vulnerability in the login route.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/request.png&#34;
+	width=&#34;277&#34;
+	height=&#34;169&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/request_hu_86599f2bc399c1d5.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/request_hu_3d274f13e6757a38.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Request&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;163&#34;
+		data-flex-basis=&#34;393px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Looking more closely at the page, I noticed a small text on the logo:&lt;/p&gt;
+&lt;center&gt;
+    &lt;img src=&#34;img/logo.png&#34; width=&#34;300&#34;&gt;
+    &lt;img src=&#34;img/texto-logo.png&#34; width=&#34;150&#34;&gt;
+&lt;/center&gt;
+&lt;p&gt;This text pointed to a directory/file on the site that served an image.&lt;/p&gt;
+&lt;h3 id=&#34;analyzing-the-image&#34;&gt;Analyzing the image
+&lt;/h3&gt;&lt;p&gt;I downloaded the image and searched for readable strings (using &lt;code&gt;strings&lt;/code&gt;). The image appeared to be a black background, but inside the strings I found data resembling encoded credentials.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/hexedit-login.png&#34;
+	width=&#34;699&#34;
+	height=&#34;227&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/hexedit-login_hu_b36397e608a9c685.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/hexedit-login_hu_92eb3e2f9187647a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Hexedit Login&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;307&#34;
+		data-flex-basis=&#34;739px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Returning to the login page, I tried the credentials found and clicked login, but again received &lt;code&gt;Incorrect username and/or password&lt;/code&gt;.&lt;br&gt;
+Looking more carefully, it became clear that both the username and password were encoded in &lt;strong&gt;Base64&lt;/strong&gt; — a strong indicator being the trailing &lt;code&gt;=&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Decoding both using CyberChef, we get:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Username:&lt;/strong&gt; bislacha&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Password:&lt;/strong&gt; bislachamuitofoda12345&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the correct credentials, the login was now successful.&lt;/p&gt;
+&lt;h3 id=&#34;access&#34;&gt;Access
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/logado.png&#34;
+	width=&#34;872&#34;
+	height=&#34;389&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/logado_hu_1e2a8f11e2e22e46.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/logado_hu_55277c56285b6463.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Logged In&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;224&#34;
+		data-flex-basis=&#34;537px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;After logging in, a new tab called &lt;strong&gt;Members&lt;/strong&gt; became available. There, I saw a list of current and former members; I focused on the authenticated user (Bislacha).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/bislacha.png&#34;
+	width=&#34;424&#34;
+	height=&#34;103&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/bislacha_hu_c009bb17cd1c590f.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/bislacha_hu_56f88a00df454c3e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Bislacha&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;411&#34;
+		data-flex-basis=&#34;987px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Instead of the nickname, we can see another Base64 string; decoding it yields: &lt;code&gt;panel.php&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;panelphp&#34;&gt;Panel.php
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/panel.png&#34;
+	width=&#34;890&#34;
+	height=&#34;399&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/panel_hu_eb4ea0aefe992d0e.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/panel_hu_d0c10f4be7272ac1.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Panel&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;223&#34;
+		data-flex-basis=&#34;535px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Accessing &lt;code&gt;/panel.php&lt;/code&gt;, I was informed that the account was logged in but not an admin. This indicates that an administrative panel exists and is protected by access control — meaning privilege escalation was likely possible.&lt;/p&gt;
+&lt;h3 id=&#34;privilege-escalation&#34;&gt;Privilege escalation
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/cookies.png&#34;
+	width=&#34;517&#34;
+	height=&#34;173&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/cookies_hu_4265a50050d32d3f.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/cookies_hu_de9b4752a804db96.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cookies&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;298&#34;
+		data-flex-basis=&#34;717px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Inspecting the stored cookies, I found the fields &lt;code&gt;login&lt;/code&gt; and &lt;code&gt;user&lt;/code&gt; with their corresponding values. They were again Base64-encoded. Decoding them, we have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;login:&lt;/strong&gt; bislacha&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;user:&lt;/strong&gt; member&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since the system stores user roles in Base64 and we need to escalate to &lt;code&gt;admin&lt;/code&gt;, I replaced the current user value with &lt;code&gt;YWRtaW4=&lt;/code&gt; (the Base64 for &lt;code&gt;admin&lt;/code&gt;) and refreshed the page.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/the-return-of-bislacha/img/resolucao.png&#34;
+	width=&#34;940&#34;
+	height=&#34;386&#34;
+	srcset=&#34;http://localhost:1313/p/the-return-of-bislacha/img/resolucao_hu_ee17fee683cb0fdb.png 480w, http://localhost:1313/p/the-return-of-bislacha/img/resolucao_hu_9ee23f3ff26343ec.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Resolution&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;243&#34;
+		data-flex-basis=&#34;584px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;After refreshing the page, the interface switched to the administrator version, and the challenge flag was displayed.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Patch</title>
+        <link>http://localhost:1313/p/patch/</link>
+        <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/patch/</guid>
+        <description>&lt;img src="http://localhost:1313/p/patch/banner.jpeg" alt="Featured image of post Patch" /&gt;&lt;h2 id=&#34;statement&#34;&gt;Statement
+&lt;/h2&gt;&lt;p&gt;Do you know how to make a patch?&lt;/p&gt;
+&lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;files/patch&#34; &gt;Click to download the patch file&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;objective&#34;&gt;Objective
+&lt;/h2&gt;&lt;p&gt;The goal of this challenge was to locate and analyze the functions inside the &lt;code&gt;patch&lt;/code&gt; file to identify the routine responsible for generating the flag.&lt;/p&gt;
+&lt;h2 id=&#34;solution&#34;&gt;Solution
+&lt;/h2&gt;&lt;h3 id=&#34;metadata&#34;&gt;Metadata
+&lt;/h3&gt;&lt;p&gt;I checked the binary’s metadata looking for hints or inconsistencies; I didn’t find anything relevant.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/metadados.png&#34;
+	width=&#34;822&#34;
+	height=&#34;434&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/metadados_hu_484e9cf321de87ee.png 480w, http://localhost:1313/p/patch/img/metadados_hu_261d30b63137a2e7.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Metadata&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;189&#34;
+		data-flex-basis=&#34;454px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;readable-strings&#34;&gt;Readable strings
+&lt;/h3&gt;&lt;p&gt;I listed all readable strings from the file searching for clues. I found a sentence and two words that didn’t point directly to the flag. The only obvious connection was between “defeat” and the string “Better luck next time”.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/string-input.png&#34;
+	width=&#34;192&#34;
+	height=&#34;31&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/string-input_hu_a79e4d57d5903966.png 480w, http://localhost:1313/p/patch/img/string-input_hu_b212e5d4138dae6d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Strings Input&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;619&#34;
+		data-flex-basis=&#34;1486px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/string-output.png&#34;
+	width=&#34;368&#34;
+	height=&#34;436&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/string-output_hu_72f3d2a224b36921.png 480w, http://localhost:1313/p/patch/img/string-output_hu_8f64b3b2bf2e03cb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Strings Output&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;84&#34;
+		data-flex-basis=&#34;202px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;checking-the-programs-functions&#34;&gt;Checking the program’s functions
+&lt;/h3&gt;&lt;p&gt;While reviewing the program’s functions, it became clear that the words found in the strings were part of the program flow. This suggested that the functions &lt;code&gt;derrota()&lt;/code&gt; (defeat) and &lt;code&gt;vitoria()&lt;/code&gt; (victory) would be relevant, and that &lt;code&gt;vitoria()&lt;/code&gt; would likely return the flag.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/funcoes-input.png&#34;
+	width=&#34;218&#34;
+	height=&#34;32&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/funcoes-input_hu_a1fd65fafa0e2d9.png 480w, http://localhost:1313/p/patch/img/funcoes-input_hu_4190cd3ffd2ea512.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Functions Input&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;681&#34;
+		data-flex-basis=&#34;1635px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/funcoes-output.png&#34;
+	width=&#34;396&#34;
+	height=&#34;327&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/funcoes-output_hu_c7c54071bc0cafcd.png 480w, http://localhost:1313/p/patch/img/funcoes-output_hu_f5c077c17782b788.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Functions Output&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;121&#34;
+		data-flex-basis=&#34;290px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;executing-the-functions&#34;&gt;Executing the functions
+&lt;/h3&gt;&lt;p&gt;Initially, I tried running the functions in debug mode but received a permission error. After adjusting the permissions/environment (allowing debugging/execution), I was able to call the functions.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/executa-erro.png&#34;
+	width=&#34;913&#34;
+	height=&#34;379&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/executa-erro_hu_f3aa8ba1eef71d8f.png 480w, http://localhost:1313/p/patch/img/executa-erro_hu_8833db9c69b9b56c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Execution Error&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;240&#34;
+		data-flex-basis=&#34;578px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/ativa-permissao.png&#34;
+	width=&#34;217&#34;
+	height=&#34;32&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/ativa-permissao_hu_d37033ce426856ce.png 480w, http://localhost:1313/p/patch/img/ativa-permissao_hu_923d67408fdbca08.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Enable Permission&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;678&#34;
+		data-flex-basis=&#34;1627px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;I had to deal with an unknown return type; to work around this, I treated the return as &lt;code&gt;void&lt;/code&gt; temporarily to force execution. When running them:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;derrota()&lt;/code&gt; printed the same sentence found in the readable strings;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vitoria()&lt;/code&gt; returned the flag.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/executa-sucesso.png&#34;
+	width=&#34;924&#34;
+	height=&#34;215&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/executa-sucesso_hu_66d199d085cd1945.png 480w, http://localhost:1313/p/patch/img/executa-sucesso_hu_38a57a4893eded94.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Successful Execution&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;429&#34;
+		data-flex-basis=&#34;1031px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;interpretation--explanation&#34;&gt;Interpretation / explanation
+&lt;/h3&gt;&lt;p&gt;The function &lt;code&gt;derrota()&lt;/code&gt; simply returns the raw string stored inside the binary, which is why it was already visible in the readable strings. The &lt;code&gt;vitoria()&lt;/code&gt; function, however, appears to perform some decoding process on previously stored data; when this routine executes, the flag is revealed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/analise-funcao.png&#34;
+	width=&#34;1086&#34;
+	height=&#34;813&#34;
+	srcset=&#34;http://localhost:1313/p/patch/img/analise-funcao_hu_9fcee4aa33a83cc2.png 480w, http://localhost:1313/p/patch/img/analise-funcao_hu_546f88636662913d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Function Analysis&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
