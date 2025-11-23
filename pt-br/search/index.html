@@ -14,7 +14,21 @@
 <meta name="twitter:title" content="Pesquisa">
 <meta name="twitter:description" content=""><link rel="alternate" type="application/json" href="https://kauamoreno.dev/pt-br/search/index.json">
     <link rel="shortcut icon" href="/favicon.ico" />
-<link rel="preload" href="/pt-br/search/index.json" as="fetch" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFE91XY591"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JFE91XY591');
+        }
+      </script><link rel="preload" href="/pt-br/search/index.json" as="fetch" crossorigin="anonymous">
     </head>
     <body class="template-search">
     <script>
