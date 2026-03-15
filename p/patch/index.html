@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/p/patch/'>
 
-<link rel="stylesheet" href="/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css"><meta property='og:title' content="Patch">
+<link rel="stylesheet" href="http://localhost:1313/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css"><meta property='og:title' content="Patch">
 <meta property='og:description' content="Write-up do desafio “Patch”, analisando strings, metadados e funções internas do binário até a execução da rotina que revela a flag.">
 <meta property='og:url' content='http://localhost:1313/p/patch/'>
 <meta property='og:site_name' content='Moreno&#39;s Blog'>
@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Patch">
 <meta name="twitter:description" content="Write-up do desafio “Patch”, analisando strings, metadados e funções internas do binário até a execução da rotina que revela a flag."><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://localhost:1313/p/patch/banner.jpeg' />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="http://localhost:1313/favicon.ico" />
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFE91XY591"></script>
       <script>
@@ -67,13 +67,13 @@
         
             
             <figure class="site-avatar">
-                <a href="/">
+                <a href="http://localhost:1313/">
                 
                     
                     
                     
                         
-                        <img src="/img/avatar1_hu_f905006eae625e14.png" width="300"
+                        <img src="http://localhost:1313/img/avatar1_hu_f905006eae625e14.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -86,7 +86,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">Moreno&#39;s Blog</a></h1>
+            <h1 class="site-name"><a href="http://localhost:1313/">Moreno&#39;s Blog</a></h1>
             <h2 class="site-description">Um lugar onde publico o que estou estudando ou trabalhando.</h2>
         </div>
     </header><ol class="menu-social">
@@ -135,7 +135,7 @@
         
         
         <li >
-            <a href='/' >
+            <a href='http://localhost:1313/' >
                 
                 
                 
@@ -155,7 +155,7 @@
         
         
         <li >
-            <a href='/sobre/' >
+            <a href='http://localhost:1313/sobre/' >
                 
                 
                 
@@ -174,7 +174,7 @@
         
         
         <li >
-            <a href='/archives/' >
+            <a href='http://localhost:1313/archives/' >
                 
                 
                 
@@ -194,7 +194,7 @@
         
         
         <li >
-            <a href='/search/' >
+            <a href='http://localhost:1313/search/' >
                 
                 
                 
@@ -310,9 +310,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/patch/">
-                <img src="/p/patch/banner_hu_faa16c91a7f900b8.jpeg"
-                        srcset="/p/patch/banner_hu_faa16c91a7f900b8.jpeg 800w, /p/patch/banner_hu_cfe4cbdfd06766cd.jpeg 1600w"
+            <a href="http://localhost:1313/p/patch/">
+                <img src="http://localhost:1313/p/patch/banner_hu_faa16c91a7f900b8.jpeg"
+                        srcset="http://localhost:1313/p/patch/banner_hu_faa16c91a7f900b8.jpeg 800w, http://localhost:1313/p/patch/banner_hu_cfe4cbdfd06766cd.jpeg 1600w"
                         width="800" 
                         height="468" 
                         loading="lazy"
@@ -326,7 +326,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/ctf/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="http://localhost:1313/categories/ctf/" style="background-color: #2a9d8f; color: #fff;">
                 CTF
             </a>
         
@@ -335,7 +335,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/patch/">Patch</a>
+            <a href="http://localhost:1313/p/patch/">Patch</a>
         </h2>
     
         
@@ -412,16 +412,16 @@
     
     <h2 id="enunciado">Enunciado
 </h2><p>Você sabe como faz um patch?</p>
-<p>👉 <a class="link" href="/p/patch/files/patch" >Clique para baixar o arquivo patch</a></p>
+<p>👉 <a class="link" href="http://localhost:1313/p/patch/files/patch" >Clique para baixar o arquivo patch</a></p>
 <h2 id="objetivo">Objetivo
 </h2><p>O objetivo deste desafio era localizar e analisar as funções do arquivo <code>patch</code> para identificar a rotina responsável pela geração da flag.</p>
 <h2 id="solução">Solução
 </h2><h3 id="metadados">Metadados
 </h3><p>Verifiquei os metadados do binário em busca de dicas ou incongruências; não encontrei nada relevante.</p>
-<p><img src="/p/patch/img/metadados.png"
+<p><img src="http://localhost:1313/p/patch/img/metadados.png"
 	width="822"
 	height="434"
-	srcset="/p/patch/img/metadados_hu_b146303766e99072.png 480w, /p/patch/img/metadados_hu_54101657f4a7d47b.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/metadados_hu_b146303766e99072.png 480w, http://localhost:1313/p/patch/img/metadados_hu_54101657f4a7d47b.png 1024w"
 	loading="lazy"
 	
 		alt="Metadados"
@@ -434,10 +434,10 @@
 ></p>
 <h3 id="strings-legíveis">Strings legíveis
 </h3><p>Listei as strings legíveis do arquivo para procurar pistas. Encontrei uma frase e duas palavras que não apontavam diretamente para a flag. A única associação óbvia foi entre “derrota” e a string “Boa sorte da próxima”.</p>
-<p><img src="/p/patch/img/string-input.png"
+<p><img src="http://localhost:1313/p/patch/img/string-input.png"
 	width="192"
 	height="31"
-	srcset="/p/patch/img/string-input_hu_e9fc8c7e2268f0d4.png 480w, /p/patch/img/string-input_hu_2f56616f04fbe9a8.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/string-input_hu_e9fc8c7e2268f0d4.png 480w, http://localhost:1313/p/patch/img/string-input_hu_2f56616f04fbe9a8.png 1024w"
 	loading="lazy"
 	
 		alt="Strings Input"
@@ -448,10 +448,10 @@
 		data-flex-basis="1486px"
 	
 ></p>
-<p><img src="/p/patch/img/string-output.png"
+<p><img src="http://localhost:1313/p/patch/img/string-output.png"
 	width="368"
 	height="436"
-	srcset="/p/patch/img/string-output_hu_8de17098945e4360.png 480w, /p/patch/img/string-output_hu_35ca4938e1b81fa1.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/string-output_hu_8de17098945e4360.png 480w, http://localhost:1313/p/patch/img/string-output_hu_35ca4938e1b81fa1.png 1024w"
 	loading="lazy"
 	
 		alt="Strings Output"
@@ -464,10 +464,10 @@
 ></p>
 <h3 id="verificando-as-funções-do-programa">Verificando as funções do programa
 </h3><p>Ao revisar as funções do programa, ficou claro que as palavras encontradas nas strings faziam parte do fluxo do código. Isso sugeriu que as funções <code>derrota()</code> e <code>vitoria()</code> seriam relevantes, provavelmente <code>vitoria()</code> retornaria a flag.</p>
-<p><img src="/p/patch/img/funcoes-input.png"
+<p><img src="http://localhost:1313/p/patch/img/funcoes-input.png"
 	width="218"
 	height="32"
-	srcset="/p/patch/img/funcoes-input_hu_667929ea17260938.png 480w, /p/patch/img/funcoes-input_hu_9d6d97aa94692f0a.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/funcoes-input_hu_667929ea17260938.png 480w, http://localhost:1313/p/patch/img/funcoes-input_hu_9d6d97aa94692f0a.png 1024w"
 	loading="lazy"
 	
 		alt="Funções Input"
@@ -478,10 +478,10 @@
 		data-flex-basis="1635px"
 	
 ></p>
-<p><img src="/p/patch/img/funcoes-output.png"
+<p><img src="http://localhost:1313/p/patch/img/funcoes-output.png"
 	width="396"
 	height="327"
-	srcset="/p/patch/img/funcoes-output_hu_8815d9dff93b6d8a.png 480w, /p/patch/img/funcoes-output_hu_8e6db7888c02392d.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/funcoes-output_hu_8815d9dff93b6d8a.png 480w, http://localhost:1313/p/patch/img/funcoes-output_hu_8e6db7888c02392d.png 1024w"
 	loading="lazy"
 	
 		alt="Funções Output"
@@ -494,10 +494,10 @@
 ></p>
 <h3 id="executando-as-funções">Executando as funções
 </h3><p>Inicialmente tentei executar as funções em modo de debug, mas recebi um erro por falta de permissão. Após ajustar as permissões/ambiente (permitindo o debug/execução), consegui chamar as funções.</p>
-<p><img src="/p/patch/img/executa-erro.png"
+<p><img src="http://localhost:1313/p/patch/img/executa-erro.png"
 	width="913"
 	height="379"
-	srcset="/p/patch/img/executa-erro_hu_a05e7439b39cf8c9.png 480w, /p/patch/img/executa-erro_hu_4d93e00331abcd96.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/executa-erro_hu_a05e7439b39cf8c9.png 480w, http://localhost:1313/p/patch/img/executa-erro_hu_4d93e00331abcd96.png 1024w"
 	loading="lazy"
 	
 		alt="Erro Execução"
@@ -508,10 +508,10 @@
 		data-flex-basis="578px"
 	
 ></p>
-<p><img src="/p/patch/img/ativa-permissao.png"
+<p><img src="http://localhost:1313/p/patch/img/ativa-permissao.png"
 	width="217"
 	height="32"
-	srcset="/p/patch/img/ativa-permissao_hu_feb4a8ba219e6f4a.png 480w, /p/patch/img/ativa-permissao_hu_ad6d28c09af00fb6.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/ativa-permissao_hu_feb4a8ba219e6f4a.png 480w, http://localhost:1313/p/patch/img/ativa-permissao_hu_ad6d28c09af00fb6.png 1024w"
 	loading="lazy"
 	
 		alt="Ativa Permissão"
@@ -527,10 +527,10 @@
 <li><code>derrota()</code> imprimiu a mesma frase encontrada nas strings legíveis;</li>
 <li><code>vitoria()</code> retornou a flag buscada.</li>
 </ul>
-<p><img src="/p/patch/img/executa-sucesso.png"
+<p><img src="http://localhost:1313/p/patch/img/executa-sucesso.png"
 	width="924"
 	height="215"
-	srcset="/p/patch/img/executa-sucesso_hu_16f0f609c4da0959.png 480w, /p/patch/img/executa-sucesso_hu_4d302f9f99fc5084.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/executa-sucesso_hu_16f0f609c4da0959.png 480w, http://localhost:1313/p/patch/img/executa-sucesso_hu_4d302f9f99fc5084.png 1024w"
 	loading="lazy"
 	
 		alt="Execução Sucesso"
@@ -543,10 +543,10 @@
 ></p>
 <h3 id="interpretação--explicação">Interpretação / explicação
 </h3><p>A função <code>derrota()</code> apenas devolve a string armazenada &ldquo;crua&rdquo; no binário, por isso já aparecia listada nas strings legíveis. Já a função <code>vitoria()</code> aparentemente realiza um processo de decodificação sobre um dado previamente armazenado; ao executar essa rotina, a flag é revelada.</p>
-<p><img src="/p/patch/img/analise-funcao.png"
+<p><img src="http://localhost:1313/p/patch/img/analise-funcao.png"
 	width="1086"
 	height="813"
-	srcset="/p/patch/img/analise-funcao_hu_b7c93826f8c2ece.png 480w, /p/patch/img/analise-funcao_hu_dcf49836627e6318.png 1024w"
+	srcset="http://localhost:1313/p/patch/img/analise-funcao_hu_b7c93826f8c2ece.png 480w, http://localhost:1313/p/patch/img/analise-funcao_hu_dcf49836627e6318.png 1024w"
 	loading="lazy"
 	
 		alt="Análise da Função"
@@ -565,9 +565,9 @@
     
     <section class="article-tags">
         
-            <a href="/tags/ctf/">CTF</a>
+            <a href="http://localhost:1313/tags/ctf/">CTF</a>
         
-            <a href="/tags/write-up/">Write-Up</a>
+            <a href="http://localhost:1313/tags/write-up/">Write-Up</a>
         
     </section>
 
@@ -601,11 +601,11 @@
             
                 
 <article class="has-image">
-    <a href="/p/o-retorno-do-bislacha/">
+    <a href="http://localhost:1313/p/o-retorno-do-bislacha/">
         
         
             <div class="article-image">
-                <img src="/p/o-retorno-do-bislacha/cover.cbda9aed12764e668f2b8a98af865fe3_hu_3169e312759ef8b.jpg" 
+                <img src="http://localhost:1313/p/o-retorno-do-bislacha/cover.cbda9aed12764e668f2b8a98af865fe3_hu_3169e312759ef8b.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -732,7 +732,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1214711cc740c5a16b52a90b8f7098ae7bb8c58ebd7793dd6bc648331ec8437f.js" defer></script>
+            </script><script type="text/javascript" src="http://localhost:1313/ts/main.1214711cc740c5a16b52a90b8f7098ae7bb8c58ebd7793dd6bc648331ec8437f.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
