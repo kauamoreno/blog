@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Write-up of the “Patch” challenge, analyzing strings, metadata, and binary functions leading to the execution of the routine that reveals the flag.">
+<html lang="pt-br" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Write-up do desafio “Patch”, analisando strings, metadados e funções internas do binário até a execução da rotina que revela a flag.">
 <title>Patch</title>
 
-<link rel='canonical' href='https://kauamoreno.dev/p/patch/'>
+<link rel='canonical' href='http://localhost:1313/p/patch/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Patch">
-<meta property='og:description' content="Write-up of the “Patch” challenge, analyzing strings, metadata, and binary functions leading to the execution of the routine that reveals the flag.">
-<meta property='og:url' content='https://kauamoreno.dev/p/patch/'>
+<link rel="stylesheet" href="/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css"><meta property='og:title' content="Patch">
+<meta property='og:description' content="Write-up do desafio “Patch”, analisando strings, metadados e funções internas do binário até a execução da rotina que revela a flag.">
+<meta property='og:url' content='http://localhost:1313/p/patch/'>
 <meta property='og:site_name' content='Moreno&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Write-Up' /><meta property='article:published_time' content='2025-11-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-20T00:00:00&#43;00:00'/><meta property='og:image' content='https://kauamoreno.dev/p/patch/banner.jpeg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='CTF' /><meta property='article:tag' content='Write-Up' /><meta property='article:published_time' content='2025-11-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-20T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/patch/banner.jpeg' />
 <meta name="twitter:title" content="Patch">
-<meta name="twitter:description" content="Write-up of the “Patch” challenge, analyzing strings, metadata, and binary functions leading to the execution of the routine that reveals the flag."><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://kauamoreno.dev/p/patch/banner.jpeg' />
+<meta name="twitter:description" content="Write-up do desafio “Patch”, analisando strings, metadados e funções internas do binário até a execução da rotina que revela a flag."><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/patch/banner.jpeg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFE91XY591"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -57,7 +57,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Alternar Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -73,7 +73,7 @@
                     
                     
                         
-                        <img src="/img/avatar1_hu_5bc485d3fd6bac12.png" width="300"
+                        <img src="/img/avatar1_hu_f905006eae625e14.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -87,7 +87,7 @@
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Moreno&#39;s Blog</a></h1>
-            <h2 class="site-description">A place where I post what I&#39;m studying or doing.</h2>
+            <h2 class="site-description">Um lugar onde publico o que estou estudando ou trabalhando.</h2>
         </div>
     </header><ol class="menu-social">
             
@@ -155,7 +155,7 @@
         
         
         <li >
-            <a href='/about/' >
+            <a href='/sobre/' >
                 
                 
                 
@@ -168,7 +168,7 @@
 
 
                 
-                <span>About</span>
+                <span>Sobre</span>
             </a>
         </li>
         
@@ -188,7 +188,7 @@
 
 
                 
-                <span>Archives</span>
+                <span>Arquivos</span>
             </a>
         </li>
         
@@ -207,7 +207,7 @@
 
 
                 
-                <span>Search</span>
+                <span>Pesquisa</span>
             </a>
         </li>
         
@@ -228,9 +228,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://kauamoreno.dev/" selected>English</option>
+                                    <option value="http://localhost:1313/" selected>Português (Brasil)</option>
                                 
-                                    <option value="https://kauamoreno.dev/pt-br/" >Português (Brasil)</option>
+                                    <option value="http://localhost:1313/en/" >English</option>
                                 
                             </select>
                         </li>
@@ -255,7 +255,7 @@
 
 
 
-                        <span>Dark Mode</span>
+                        <span>Modo Escuro</span>
                     </li>
                 
             </ol>
@@ -280,20 +280,20 @@
 
 
         </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
+        <h2 class="widget-title section-title">Índice</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#statement">Statement</a></li>
-    <li><a href="#objective">Objective</a></li>
-    <li><a href="#solution">Solution</a>
+    <li><a href="#enunciado">Enunciado</a></li>
+    <li><a href="#objetivo">Objetivo</a></li>
+    <li><a href="#solução">Solução</a>
       <ol>
-        <li><a href="#metadata">Metadata</a></li>
-        <li><a href="#readable-strings">Readable strings</a></li>
-        <li><a href="#checking-the-programs-functions">Checking the program’s functions</a></li>
-        <li><a href="#executing-the-functions">Executing the functions</a></li>
-        <li><a href="#interpretation--explanation">Interpretation / explanation</a></li>
+        <li><a href="#metadados">Metadados</a></li>
+        <li><a href="#strings-legíveis">Strings legíveis</a></li>
+        <li><a href="#verificando-as-funções-do-programa">Verificando as funções do programa</a></li>
+        <li><a href="#executando-as-funções">Executando as funções</a></li>
+        <li><a href="#interpretação--explicação">Interpretação / explicação</a></li>
       </ol>
     </li>
   </ol>
@@ -311,8 +311,8 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/p/patch/">
-                <img src="/p/patch/banner_hu_add11a9cf13e3b33.jpeg"
-                        srcset="/p/patch/banner_hu_add11a9cf13e3b33.jpeg 800w, /p/patch/banner_hu_b3fdf91b9f9f1d80.jpeg 1600w"
+                <img src="/p/patch/banner_hu_faa16c91a7f900b8.jpeg"
+                        srcset="/p/patch/banner_hu_faa16c91a7f900b8.jpeg 800w, /p/patch/banner_hu_cfe4cbdfd06766cd.jpeg 1600w"
                         width="800" 
                         height="468" 
                         loading="lazy"
@@ -340,7 +340,7 @@
     
         
         <h3 class="article-subtitle">
-            Write-up of the “Patch” challenge, analyzing strings, metadata, and binary functions leading to the execution of the routine that reveals the flag.
+            Write-up do desafio “Patch”, analisando strings, metadados e funções internas do binário até a execução da rotina que revela a flag.
         </h3>
         
     </div>
@@ -361,7 +361,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 20, 2025</time>
+                <time class="article-time--published">nov. 20, 2025</time>
             </div>
         
 
@@ -376,7 +376,7 @@
 
 
                 <time class="article-time--reading">
-                    2 minute read
+                    2 minutos de leitura
                 </time>
             </div>
         
@@ -398,7 +398,7 @@
 
             <div>
                 
-                    <a href="https://kauamoreno.dev/pt-br/p/patch/" class="link">Português (Brasil)</a>
+                    <a href="http://localhost:1313/en/p/patch/" class="link">English</a>
                 
             </div>
         </footer>
@@ -410,21 +410,21 @@
     <section class="article-content">
     
     
-    <h2 id="statement">Statement
-</h2><p>Do you know how to make a patch?</p>
-<p>👉 <a class="link" href="files/patch" >Click to download the patch file</a></p>
-<h2 id="objective">Objective
-</h2><p>The goal of this challenge was to locate and analyze the functions inside the <code>patch</code> file to identify the routine responsible for generating the flag.</p>
-<h2 id="solution">Solution
-</h2><h3 id="metadata">Metadata
-</h3><p>I checked the binary’s metadata looking for hints or inconsistencies; I didn’t find anything relevant.</p>
+    <h2 id="enunciado">Enunciado
+</h2><p>Você sabe como faz um patch?</p>
+<p>👉 <a class="link" href="/p/patch/files/patch" >Clique para baixar o arquivo patch</a></p>
+<h2 id="objetivo">Objetivo
+</h2><p>O objetivo deste desafio era localizar e analisar as funções do arquivo <code>patch</code> para identificar a rotina responsável pela geração da flag.</p>
+<h2 id="solução">Solução
+</h2><h3 id="metadados">Metadados
+</h3><p>Verifiquei os metadados do binário em busca de dicas ou incongruências; não encontrei nada relevante.</p>
 <p><img src="/p/patch/img/metadados.png"
 	width="822"
 	height="434"
-	srcset="/p/patch/img/metadados_hu_484e9cf321de87ee.png 480w, /p/patch/img/metadados_hu_261d30b63137a2e7.png 1024w"
+	srcset="/p/patch/img/metadados_hu_b146303766e99072.png 480w, /p/patch/img/metadados_hu_54101657f4a7d47b.png 1024w"
 	loading="lazy"
 	
-		alt="Metadata"
+		alt="Metadados"
 	
 	
 		class="gallery-image" 
@@ -432,12 +432,12 @@
 		data-flex-basis="454px"
 	
 ></p>
-<h3 id="readable-strings">Readable strings
-</h3><p>I listed all readable strings from the file searching for clues. I found a sentence and two words that didn’t point directly to the flag. The only obvious connection was between “defeat” and the string “Better luck next time”.</p>
+<h3 id="strings-legíveis">Strings legíveis
+</h3><p>Listei as strings legíveis do arquivo para procurar pistas. Encontrei uma frase e duas palavras que não apontavam diretamente para a flag. A única associação óbvia foi entre “derrota” e a string “Boa sorte da próxima”.</p>
 <p><img src="/p/patch/img/string-input.png"
 	width="192"
 	height="31"
-	srcset="/p/patch/img/string-input_hu_a79e4d57d5903966.png 480w, /p/patch/img/string-input_hu_b212e5d4138dae6d.png 1024w"
+	srcset="/p/patch/img/string-input_hu_e9fc8c7e2268f0d4.png 480w, /p/patch/img/string-input_hu_2f56616f04fbe9a8.png 1024w"
 	loading="lazy"
 	
 		alt="Strings Input"
@@ -451,7 +451,7 @@
 <p><img src="/p/patch/img/string-output.png"
 	width="368"
 	height="436"
-	srcset="/p/patch/img/string-output_hu_72f3d2a224b36921.png 480w, /p/patch/img/string-output_hu_8f64b3b2bf2e03cb.png 1024w"
+	srcset="/p/patch/img/string-output_hu_8de17098945e4360.png 480w, /p/patch/img/string-output_hu_35ca4938e1b81fa1.png 1024w"
 	loading="lazy"
 	
 		alt="Strings Output"
@@ -462,15 +462,15 @@
 		data-flex-basis="202px"
 	
 ></p>
-<h3 id="checking-the-programs-functions">Checking the program’s functions
-</h3><p>While reviewing the program’s functions, it became clear that the words found in the strings were part of the program flow. This suggested that the functions <code>derrota()</code> (defeat) and <code>vitoria()</code> (victory) would be relevant, and that <code>vitoria()</code> would likely return the flag.</p>
+<h3 id="verificando-as-funções-do-programa">Verificando as funções do programa
+</h3><p>Ao revisar as funções do programa, ficou claro que as palavras encontradas nas strings faziam parte do fluxo do código. Isso sugeriu que as funções <code>derrota()</code> e <code>vitoria()</code> seriam relevantes, provavelmente <code>vitoria()</code> retornaria a flag.</p>
 <p><img src="/p/patch/img/funcoes-input.png"
 	width="218"
 	height="32"
-	srcset="/p/patch/img/funcoes-input_hu_a1fd65fafa0e2d9.png 480w, /p/patch/img/funcoes-input_hu_4190cd3ffd2ea512.png 1024w"
+	srcset="/p/patch/img/funcoes-input_hu_667929ea17260938.png 480w, /p/patch/img/funcoes-input_hu_9d6d97aa94692f0a.png 1024w"
 	loading="lazy"
 	
-		alt="Functions Input"
+		alt="Funções Input"
 	
 	
 		class="gallery-image" 
@@ -481,10 +481,10 @@
 <p><img src="/p/patch/img/funcoes-output.png"
 	width="396"
 	height="327"
-	srcset="/p/patch/img/funcoes-output_hu_c7c54071bc0cafcd.png 480w, /p/patch/img/funcoes-output_hu_f5c077c17782b788.png 1024w"
+	srcset="/p/patch/img/funcoes-output_hu_8815d9dff93b6d8a.png 480w, /p/patch/img/funcoes-output_hu_8e6db7888c02392d.png 1024w"
 	loading="lazy"
 	
-		alt="Functions Output"
+		alt="Funções Output"
 	
 	
 		class="gallery-image" 
@@ -492,15 +492,15 @@
 		data-flex-basis="290px"
 	
 ></p>
-<h3 id="executing-the-functions">Executing the functions
-</h3><p>Initially, I tried running the functions in debug mode but received a permission error. After adjusting the permissions/environment (allowing debugging/execution), I was able to call the functions.</p>
+<h3 id="executando-as-funções">Executando as funções
+</h3><p>Inicialmente tentei executar as funções em modo de debug, mas recebi um erro por falta de permissão. Após ajustar as permissões/ambiente (permitindo o debug/execução), consegui chamar as funções.</p>
 <p><img src="/p/patch/img/executa-erro.png"
 	width="913"
 	height="379"
-	srcset="/p/patch/img/executa-erro_hu_f3aa8ba1eef71d8f.png 480w, /p/patch/img/executa-erro_hu_8833db9c69b9b56c.png 1024w"
+	srcset="/p/patch/img/executa-erro_hu_a05e7439b39cf8c9.png 480w, /p/patch/img/executa-erro_hu_4d93e00331abcd96.png 1024w"
 	loading="lazy"
 	
-		alt="Execution Error"
+		alt="Erro Execução"
 	
 	
 		class="gallery-image" 
@@ -511,10 +511,10 @@
 <p><img src="/p/patch/img/ativa-permissao.png"
 	width="217"
 	height="32"
-	srcset="/p/patch/img/ativa-permissao_hu_d37033ce426856ce.png 480w, /p/patch/img/ativa-permissao_hu_923d67408fdbca08.png 1024w"
+	srcset="/p/patch/img/ativa-permissao_hu_feb4a8ba219e6f4a.png 480w, /p/patch/img/ativa-permissao_hu_ad6d28c09af00fb6.png 1024w"
 	loading="lazy"
 	
-		alt="Enable Permission"
+		alt="Ativa Permissão"
 	
 	
 		class="gallery-image" 
@@ -522,18 +522,18 @@
 		data-flex-basis="1627px"
 	
 ></p>
-<p>I had to deal with an unknown return type; to work around this, I treated the return as <code>void</code> temporarily to force execution. When running them:</p>
+<p>Tive que lidar com o tipo de retorno desconhecido das funções; para contornar isso, tratei o retorno como <code>void</code> temporariamente para forçar a execução. Ao executar:</p>
 <ul>
-<li><code>derrota()</code> printed the same sentence found in the readable strings;</li>
-<li><code>vitoria()</code> returned the flag.</li>
+<li><code>derrota()</code> imprimiu a mesma frase encontrada nas strings legíveis;</li>
+<li><code>vitoria()</code> retornou a flag buscada.</li>
 </ul>
 <p><img src="/p/patch/img/executa-sucesso.png"
 	width="924"
 	height="215"
-	srcset="/p/patch/img/executa-sucesso_hu_66d199d085cd1945.png 480w, /p/patch/img/executa-sucesso_hu_38a57a4893eded94.png 1024w"
+	srcset="/p/patch/img/executa-sucesso_hu_16f0f609c4da0959.png 480w, /p/patch/img/executa-sucesso_hu_4d302f9f99fc5084.png 1024w"
 	loading="lazy"
 	
-		alt="Successful Execution"
+		alt="Execução Sucesso"
 	
 	
 		class="gallery-image" 
@@ -541,15 +541,15 @@
 		data-flex-basis="1031px"
 	
 ></p>
-<h3 id="interpretation--explanation">Interpretation / explanation
-</h3><p>The function <code>derrota()</code> simply returns the raw string stored inside the binary, which is why it was already visible in the readable strings. The <code>vitoria()</code> function, however, appears to perform some decoding process on previously stored data; when this routine executes, the flag is revealed.</p>
+<h3 id="interpretação--explicação">Interpretação / explicação
+</h3><p>A função <code>derrota()</code> apenas devolve a string armazenada &ldquo;crua&rdquo; no binário, por isso já aparecia listada nas strings legíveis. Já a função <code>vitoria()</code> aparentemente realiza um processo de decodificação sobre um dado previamente armazenado; ao executar essa rotina, a flag é revelada.</p>
 <p><img src="/p/patch/img/analise-funcao.png"
 	width="1086"
 	height="813"
-	srcset="/p/patch/img/analise-funcao_hu_9fcee4aa33a83cc2.png 480w, /p/patch/img/analise-funcao_hu_546f88636662913d.png 1024w"
+	srcset="/p/patch/img/analise-funcao_hu_b7c93826f8c2ece.png 480w, /p/patch/img/analise-funcao_hu_dcf49836627e6318.png 1024w"
 	loading="lazy"
 	
-		alt="Function Analysis"
+		alt="Análise da Função"
 	
 	
 		class="gallery-image" 
@@ -595,21 +595,21 @@
     
 
 <aside class="related-content--wrapper">
-    <h2 class="section-title">Related content</h2>
+    <h2 class="section-title">Conteúdo relacionado</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
             
                 
 <article class="has-image">
-    <a href="/p/the-return-of-bislacha/">
+    <a href="/p/o-retorno-do-bislacha/">
         
         
             <div class="article-image">
-                <img src="/p/the-return-of-bislacha/cover.cbda9aed12764e668f2b8a98af865fe3_hu_f47e9ff95a143cf6.jpg" 
+                <img src="/p/o-retorno-do-bislacha/cover.cbda9aed12764e668f2b8a98af865fe3_hu_3169e312759ef8b.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post The Return of Bislacha"
+                        alt="Featured image of post O retorno do Bislacha"
                         
                         data-hash="md5-y9qa7RJ2TmaPK4qYr4Zf4w==">
                 
@@ -617,7 +617,7 @@
         
 
         <div class="article-details">
-            <h2 class="article-title">The Return of Bislacha</h2>
+            <h2 class="article-title">O retorno do Bislacha</h2>
         </div>
     </a>
 </article>
@@ -636,12 +636,14 @@
     <section class="copyright">
         &copy; 
         
-        2025 Kauã Moreno
+            2025 - 
+        
+        2026 Kauã Moreno
     </section>
     
     <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        Criado com <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Tema <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.31.0">Stack</a></b> desenvolvido por <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -730,7 +732,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.a02c933ad9b14187a1ea5d0ed52828310c07adb8b29cea437158f0b49213e852.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1214711cc740c5a16b52a90b8f7098ae7bb8c58ebd7793dd6bc648331ec8437f.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
