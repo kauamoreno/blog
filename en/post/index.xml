@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Moreno&#39;s Blog</title>
-        <link>http://localhost:1313/en/post/</link>
+        <link>https://kauamoreno.dev/en/post/</link>
         <description>Recent content in Posts on Moreno&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Kauã Moreno</copyright>
-        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/en/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 21 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://kauamoreno.dev/en/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>The Return of Bislacha</title>
-        <link>http://localhost:1313/en/p/the-return-of-bislacha/</link>
+        <link>https://kauamoreno.dev/en/p/the-return-of-bislacha/</link>
         <pubDate>Fri, 21 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/p/the-return-of-bislacha/</guid>
-        <description>&lt;img src="http://localhost:1313/p/o-retorno-do-bislacha/cover.jpg" alt="Featured image of post The Return of Bislacha" /&gt;&lt;h2 id=&#34;objective&#34;&gt;Objective
+        <guid>https://kauamoreno.dev/en/p/the-return-of-bislacha/</guid>
+        <description>&lt;img src="https://kauamoreno.dev/p/o-retorno-do-bislacha/cover.jpg" alt="Featured image of post The Return of Bislacha" /&gt;&lt;h2 id=&#34;objective&#34;&gt;Objective
 &lt;/h2&gt;&lt;p&gt;The goal of this challenge was to perform reconnaissance, analyze files (steganography/strings), decode credentials, and exploit a weak access control to achieve privilege escalation.&lt;/p&gt;
 &lt;h2 id=&#34;solution&#34;&gt;Solution
 &lt;/h2&gt;&lt;h3 id=&#34;performing-reconnaissance&#34;&gt;Performing reconnaissance
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/reconhecimento.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/reconhecimento.png&#34;
 	width=&#34;1920&#34;
 	height=&#34;446&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/reconhecimento_hu_61fede1220632472.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/reconhecimento_hu_76b299611d7fec85.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/reconhecimento_hu_61fede1220632472.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/reconhecimento_hu_76b299611d7fec85.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Reconnaissance&#34;
@@ -34,10 +34,10 @@
 &lt;p&gt;At first glance, the site contains only two tabs: &lt;strong&gt;Home&lt;/strong&gt; and &lt;strong&gt;Login&lt;/strong&gt;. The Home tab redirects to the Login tab. I inspected the HTML and the browser console, and nothing unusual appeared.&lt;/p&gt;
 &lt;p&gt;To test the login system, I started with a simple SQL Injection test: &lt;code&gt;&#39; OR 1=1 --&lt;/code&gt;.&lt;br&gt;
 The system returned &lt;code&gt;Incorrect username and/or password&lt;/code&gt;, suggesting there was no trivial SQL vulnerability in the login route.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/request.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/request.png&#34;
 	width=&#34;277&#34;
 	height=&#34;169&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/request_hu_4f665f10b4b3535f.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/request_hu_13b307b635fc40dd.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/request_hu_4f665f10b4b3535f.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/request_hu_13b307b635fc40dd.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Request&#34;
@@ -56,10 +56,10 @@ The system returned &lt;code&gt;Incorrect username and/or password&lt;/code&gt;,
 &lt;p&gt;This text pointed to a directory/file on the site that served an image.&lt;/p&gt;
 &lt;h3 id=&#34;analyzing-the-image&#34;&gt;Analyzing the image
 &lt;/h3&gt;&lt;p&gt;I downloaded the image and searched for readable strings (using &lt;code&gt;strings&lt;/code&gt;). The image appeared to be a black background, but inside the strings I found data resembling encoded credentials.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/hexedit-login.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/hexedit-login.png&#34;
 	width=&#34;699&#34;
 	height=&#34;227&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/hexedit-login_hu_ad840993b98818fa.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/hexedit-login_hu_7593acc3b342cd40.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/hexedit-login_hu_ad840993b98818fa.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/hexedit-login_hu_7593acc3b342cd40.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Hexedit Login&#34;
@@ -79,10 +79,10 @@ Looking more carefully, it became clear that both the username and password were
 &lt;/ul&gt;
 &lt;p&gt;With the correct credentials, the login was now successful.&lt;/p&gt;
 &lt;h3 id=&#34;access&#34;&gt;Access
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/logado.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/logado.png&#34;
 	width=&#34;872&#34;
 	height=&#34;389&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/logado_hu_34ff702ada4de0ce.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/logado_hu_684249f9e0feb80a.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/logado_hu_34ff702ada4de0ce.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/logado_hu_684249f9e0feb80a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Logged In&#34;
@@ -94,10 +94,10 @@ Looking more carefully, it became clear that both the username and password were
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;After logging in, a new tab called &lt;strong&gt;Members&lt;/strong&gt; became available. There, I saw a list of current and former members; I focused on the authenticated user (Bislacha).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/bislacha.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/bislacha.png&#34;
 	width=&#34;424&#34;
 	height=&#34;103&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/bislacha_hu_51e91bb03020a910.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/bislacha_hu_105db65999efe9ff.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/bislacha_hu_51e91bb03020a910.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/bislacha_hu_105db65999efe9ff.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Bislacha&#34;
@@ -110,10 +110,10 @@ Looking more carefully, it became clear that both the username and password were
 &gt;&lt;/p&gt;
 &lt;p&gt;Instead of the nickname, we can see another Base64 string; decoding it yields: &lt;code&gt;panel.php&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;panelphp&#34;&gt;Panel.php
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/panel.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/panel.png&#34;
 	width=&#34;890&#34;
 	height=&#34;399&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/panel_hu_698ffdb19684ab0a.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/panel_hu_b543ddd623b3cfc3.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/panel_hu_698ffdb19684ab0a.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/panel_hu_b543ddd623b3cfc3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Panel&#34;
@@ -126,10 +126,10 @@ Looking more carefully, it became clear that both the username and password were
 &gt;&lt;/p&gt;
 &lt;p&gt;Accessing &lt;code&gt;/panel.php&lt;/code&gt;, I was informed that the account was logged in but not an admin. This indicates that an administrative panel exists and is protected by access control — meaning privilege escalation was likely possible.&lt;/p&gt;
 &lt;h3 id=&#34;privilege-escalation&#34;&gt;Privilege escalation
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/cookies.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/cookies.png&#34;
 	width=&#34;517&#34;
 	height=&#34;173&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/cookies_hu_cd1887baa5c1f35.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/cookies_hu_169742fa5cab6d2e.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/cookies_hu_cd1887baa5c1f35.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/cookies_hu_169742fa5cab6d2e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Cookies&#34;
@@ -146,10 +146,10 @@ Looking more carefully, it became clear that both the username and password were
 &lt;li&gt;&lt;strong&gt;user:&lt;/strong&gt; member&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Since the system stores user roles in Base64 and we need to escalate to &lt;code&gt;admin&lt;/code&gt;, I replaced the current user value with &lt;code&gt;YWRtaW4=&lt;/code&gt; (the Base64 for &lt;code&gt;admin&lt;/code&gt;) and refreshed the page.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/resolucao.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/resolucao.png&#34;
 	width=&#34;940&#34;
 	height=&#34;386&#34;
-	srcset=&#34;http://localhost:1313/p/o-retorno-do-bislacha/img/resolucao_hu_ef031eefd795062b.png 480w, http://localhost:1313/p/o-retorno-do-bislacha/img/resolucao_hu_e1b9331d7b905f36.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/o-retorno-do-bislacha/img/resolucao_hu_ef031eefd795062b.png 480w, https://kauamoreno.dev/p/o-retorno-do-bislacha/img/resolucao_hu_e1b9331d7b905f36.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Resolution&#34;
@@ -165,11 +165,11 @@ Looking more carefully, it became clear that both the username and password were
         </item>
         <item>
         <title>Patch</title>
-        <link>http://localhost:1313/en/p/patch/</link>
+        <link>https://kauamoreno.dev/en/p/patch/</link>
         <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/en/p/patch/</guid>
-        <description>&lt;img src="http://localhost:1313/p/patch/banner.jpeg" alt="Featured image of post Patch" /&gt;&lt;h2 id=&#34;statement&#34;&gt;Statement
+        <guid>https://kauamoreno.dev/en/p/patch/</guid>
+        <description>&lt;img src="https://kauamoreno.dev/p/patch/banner.jpeg" alt="Featured image of post Patch" /&gt;&lt;h2 id=&#34;statement&#34;&gt;Statement
 &lt;/h2&gt;&lt;p&gt;Do you know how to make a patch?&lt;/p&gt;
 &lt;p&gt;👉 &lt;a class=&#34;link&#34; href=&#34;files/patch&#34; &gt;Click to download the patch file&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;objective&#34;&gt;Objective
@@ -177,10 +177,10 @@ Looking more carefully, it became clear that both the username and password were
 &lt;h2 id=&#34;solution&#34;&gt;Solution
 &lt;/h2&gt;&lt;h3 id=&#34;metadata&#34;&gt;Metadata
 &lt;/h3&gt;&lt;p&gt;I checked the binary’s metadata looking for hints or inconsistencies; I didn’t find anything relevant.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/metadados.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/metadados.png&#34;
 	width=&#34;822&#34;
 	height=&#34;434&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/metadados_hu_b146303766e99072.png 480w, http://localhost:1313/p/patch/img/metadados_hu_54101657f4a7d47b.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/metadados_hu_b146303766e99072.png 480w, https://kauamoreno.dev/p/patch/img/metadados_hu_54101657f4a7d47b.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Metadata&#34;
@@ -193,10 +193,10 @@ Looking more carefully, it became clear that both the username and password were
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;readable-strings&#34;&gt;Readable strings
 &lt;/h3&gt;&lt;p&gt;I listed all readable strings from the file searching for clues. I found a sentence and two words that didn’t point directly to the flag. The only obvious connection was between “defeat” and the string “Better luck next time”.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/string-input.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/string-input.png&#34;
 	width=&#34;192&#34;
 	height=&#34;31&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/string-input_hu_e9fc8c7e2268f0d4.png 480w, http://localhost:1313/p/patch/img/string-input_hu_2f56616f04fbe9a8.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/string-input_hu_e9fc8c7e2268f0d4.png 480w, https://kauamoreno.dev/p/patch/img/string-input_hu_2f56616f04fbe9a8.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Strings Input&#34;
@@ -207,10 +207,10 @@ Looking more carefully, it became clear that both the username and password were
 		data-flex-basis=&#34;1486px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/string-output.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/string-output.png&#34;
 	width=&#34;368&#34;
 	height=&#34;436&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/string-output_hu_8de17098945e4360.png 480w, http://localhost:1313/p/patch/img/string-output_hu_35ca4938e1b81fa1.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/string-output_hu_8de17098945e4360.png 480w, https://kauamoreno.dev/p/patch/img/string-output_hu_35ca4938e1b81fa1.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Strings Output&#34;
@@ -223,10 +223,10 @@ Looking more carefully, it became clear that both the username and password were
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;checking-the-programs-functions&#34;&gt;Checking the program’s functions
 &lt;/h3&gt;&lt;p&gt;While reviewing the program’s functions, it became clear that the words found in the strings were part of the program flow. This suggested that the functions &lt;code&gt;derrota()&lt;/code&gt; (defeat) and &lt;code&gt;vitoria()&lt;/code&gt; (victory) would be relevant, and that &lt;code&gt;vitoria()&lt;/code&gt; would likely return the flag.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/funcoes-input.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/funcoes-input.png&#34;
 	width=&#34;218&#34;
 	height=&#34;32&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/funcoes-input_hu_667929ea17260938.png 480w, http://localhost:1313/p/patch/img/funcoes-input_hu_9d6d97aa94692f0a.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/funcoes-input_hu_667929ea17260938.png 480w, https://kauamoreno.dev/p/patch/img/funcoes-input_hu_9d6d97aa94692f0a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Functions Input&#34;
@@ -237,10 +237,10 @@ Looking more carefully, it became clear that both the username and password were
 		data-flex-basis=&#34;1635px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/funcoes-output.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/funcoes-output.png&#34;
 	width=&#34;396&#34;
 	height=&#34;327&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/funcoes-output_hu_8815d9dff93b6d8a.png 480w, http://localhost:1313/p/patch/img/funcoes-output_hu_8e6db7888c02392d.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/funcoes-output_hu_8815d9dff93b6d8a.png 480w, https://kauamoreno.dev/p/patch/img/funcoes-output_hu_8e6db7888c02392d.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Functions Output&#34;
@@ -253,10 +253,10 @@ Looking more carefully, it became clear that both the username and password were
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;executing-the-functions&#34;&gt;Executing the functions
 &lt;/h3&gt;&lt;p&gt;Initially, I tried running the functions in debug mode but received a permission error. After adjusting the permissions/environment (allowing debugging/execution), I was able to call the functions.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/executa-erro.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/executa-erro.png&#34;
 	width=&#34;913&#34;
 	height=&#34;379&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/executa-erro_hu_a05e7439b39cf8c9.png 480w, http://localhost:1313/p/patch/img/executa-erro_hu_4d93e00331abcd96.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/executa-erro_hu_a05e7439b39cf8c9.png 480w, https://kauamoreno.dev/p/patch/img/executa-erro_hu_4d93e00331abcd96.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Execution Error&#34;
@@ -267,10 +267,10 @@ Looking more carefully, it became clear that both the username and password were
 		data-flex-basis=&#34;578px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/ativa-permissao.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/ativa-permissao.png&#34;
 	width=&#34;217&#34;
 	height=&#34;32&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/ativa-permissao_hu_feb4a8ba219e6f4a.png 480w, http://localhost:1313/p/patch/img/ativa-permissao_hu_ad6d28c09af00fb6.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/ativa-permissao_hu_feb4a8ba219e6f4a.png 480w, https://kauamoreno.dev/p/patch/img/ativa-permissao_hu_ad6d28c09af00fb6.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Enable Permission&#34;
@@ -286,10 +286,10 @@ Looking more carefully, it became clear that both the username and password were
 &lt;li&gt;&lt;code&gt;derrota()&lt;/code&gt; printed the same sentence found in the readable strings;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;vitoria()&lt;/code&gt; returned the flag.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/executa-sucesso.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/executa-sucesso.png&#34;
 	width=&#34;924&#34;
 	height=&#34;215&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/executa-sucesso_hu_16f0f609c4da0959.png 480w, http://localhost:1313/p/patch/img/executa-sucesso_hu_4d302f9f99fc5084.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/executa-sucesso_hu_16f0f609c4da0959.png 480w, https://kauamoreno.dev/p/patch/img/executa-sucesso_hu_4d302f9f99fc5084.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Successful Execution&#34;
@@ -302,10 +302,10 @@ Looking more carefully, it became clear that both the username and password were
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;interpretation--explanation&#34;&gt;Interpretation / explanation
 &lt;/h3&gt;&lt;p&gt;The function &lt;code&gt;derrota()&lt;/code&gt; simply returns the raw string stored inside the binary, which is why it was already visible in the readable strings. The &lt;code&gt;vitoria()&lt;/code&gt; function, however, appears to perform some decoding process on previously stored data; when this routine executes, the flag is revealed.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/patch/img/analise-funcao.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://kauamoreno.dev/p/patch/img/analise-funcao.png&#34;
 	width=&#34;1086&#34;
 	height=&#34;813&#34;
-	srcset=&#34;http://localhost:1313/p/patch/img/analise-funcao_hu_b7c93826f8c2ece.png 480w, http://localhost:1313/p/patch/img/analise-funcao_hu_dcf49836627e6318.png 1024w&#34;
+	srcset=&#34;https://kauamoreno.dev/p/patch/img/analise-funcao_hu_b7c93826f8c2ece.png 480w, https://kauamoreno.dev/p/patch/img/analise-funcao_hu_dcf49836627e6318.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Function Analysis&#34;
