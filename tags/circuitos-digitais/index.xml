@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Circuitos Digitais on Moreno&#39;s Devlog</title>
+        <link>http://localhost:1313/tags/circuitos-digitais/</link>
+        <description>Recent content in Circuitos Digitais on Moreno&#39;s Devlog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>pt-br</language>
+        <copyright>Kauã Moreno</copyright>
+        <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/circuitos-digitais/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cronômetro Digital HH:MM:SS em Logisim</title>
+        <link>http://localhost:1313/p/cron%C3%B4metro-digital-hhmmss-em-logisim/</link>
+        <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/cron%C3%B4metro-digital-hhmmss-em-logisim/</guid>
+        <description>&lt;img src="http://localhost:1313/p/cron%C3%B4metro-digital-hhmmss-em-logisim/cover.png" alt="Featured image of post Cronômetro Digital HH:MM:SS em Logisim" /&gt;&lt;embed src=&#34;http://localhost:1313/pdf/cronometro-digital-logisim-hhmmss.pdf&#34; type=&#34;application/pdf&#34; width=&#34;100%&#34; height=&#34;800px&#34; /&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
